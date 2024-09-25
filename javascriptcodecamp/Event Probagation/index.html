@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(255, 0, 179);
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            border: 10px solid #fff;
+        }
+
+        .div2, .div1 {
+            border: 2px solid white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .button {
+            font-size: 20px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: solid 2px #fff;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .button {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="div2">
+        2
+        <div class="div1">
+            1
+            <button class="button">Click</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

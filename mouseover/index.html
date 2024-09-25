@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Object Specification</title>
+</head>
+<script>
+ function show(name, email, description){
+    var iframe = document.getElementById("iframe");
+    let iHTML = "<h3>" + name + "</h3>";
+    iHTML += "<h4>" + email + "</h4>";
+    iHTML += "<h5>" + description + "</h5>";
+    iframe.contentDocument.body.innerHTML = iHTML;
+ }
+</script>
+<body>
+
+<iframe id="iframe"></iframe>
+<div id="Object">
+    <p id="object" onmouseover="show('Deepak', 'Deepak@gmail.com', 'My name is Deepak')">
+        Deepak
+    </p>
+</div>
+
+</body>
+</html>
+

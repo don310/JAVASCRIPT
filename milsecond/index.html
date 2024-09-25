@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Event Timer</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    p {
+      cursor: pointer;
+      padding: 10px;
+      background-color: lightblue;
+      border: 1px solid blue;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p id="clickableParagraph">Click Me!</p>
+
+  <script>
+    $(document).ready(function() {
+      let firstClickTime, secondClickTime;
+
+      $("#clickableParagraph").click(function() {
+        if (!firstClickTime) {
+          firstClickTime = new Date().getTime();
+          $(this).text("Click Again!");
+        } else {
+          secondClickTime = new Date().getTime();
+          const millisecondsDifference = secondClickTime - firstClickTime;
+          alert("Milliseconds between clicks: " + millisecondsDifference);
+          firstClickTime = null;
+          $(this).text("Click Me!");
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

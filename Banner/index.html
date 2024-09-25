@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Banner Advertisement</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner-ad {
+      width: 100%;
+      height: 100px; /* Adjust height as needed */
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-ad img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .content {
+      padding-top: 120px; /* Adjust based on the height of the ad */
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner-ad" id="bannerAdContainer">
+    <img id="bannerAd" src="" alt="Banner Advertisement">
+  </div>
+  <div class="content">
+    <h1>Welcome to Our Website</h1>
+    <p>This is the main content of your website.</p>
+  </div>
+
+  <script>
+    const ads = [
+      "ad1.jpg",
+      "ad2.jpg",
+      "ad3.jpg"
+    ]; // Add your advertisement images here
+
+    let currentAdIndex = 0;
+    const bannerAd = document.getElementById('bannerAd');
+
+    function changeAd() {
+      bannerAd.src = ads[currentAdIndex];
+      currentAdIndex = (currentAdIndex + 1) % ads.length;
+    }
+
+    changeAd(); // Initial ad
+
+    setInterval(changeAd, 10000); // Change ad every 10 seconds
+  </script>
+</body>
+
+</html>

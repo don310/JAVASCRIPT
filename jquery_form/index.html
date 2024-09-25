@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disable/Enable Form Submit Button and Blink Text</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  .blink {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<form id="myForm">
+  <input type="text" placeholder="Enter your name" required>
+  <button type="submit" id="submitButton">Submit</button>
+</form>
+
+<div id="blinkText">Please fill out the form</div>
+
+<script>
+  $(document).ready(function(){
+    // Disable submit button initially
+    $("#submitButton").prop("disabled", true);
+
+    // Blink text
+    setInterval(function(){
+      $("#blinkText").toggleClass("blink");
+    }, 500);
+
+    // Enable/disable submit button based on form validation
+    $("#myForm input").keyup(function() {
+      let isValid = true;                               
+      $("#myForm input").each(function() {
+        if ($(this).val() === '') {
+          isValid = false;
+        }
+      });
+
+      if (isValid) {
+        $("#submitButton").prop("disabled", false);
+      } else {
+        $("#submitButton").prop("disabled", true);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

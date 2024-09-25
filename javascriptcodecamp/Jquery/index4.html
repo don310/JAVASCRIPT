@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animation Example</title>
+    <style>
+        /* Your CSS code here */
+        #block {
+            background-color: #bca;
+            width: 100px;
+            border: 1px solid green;
+        }
+
+        body {
+            font-size: 2rem;
+            background: beige;
+        }
+
+        button {
+            font-size: .7em;
+        }
+    </style>
+</head>
+<body>
+    <button id="go">Start Animation</button>
+    <div id="block">Hello !</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Your JavaScript code here
+        // $("#go").click(function() {
+        //     $("#block").animate({
+        //         opacity: 0.5,
+        //         marginLeft: "+=50px",
+        //         height: "400px"
+        //     }, 3000, "linear", function() {
+        //         $(this).after("<div>Animation Complete</div>");
+        //     });
+        // });
+
+        $("#go").click(function(){
+            $("#block")
+            .animate({width: "90%"}, 1000)
+            .animate({fontSize: "40px"}, 1000)
+            .animate({borderLeftWidth: "30px"}, 1000)
+        })
+    </script>
+</body>
+</html>
